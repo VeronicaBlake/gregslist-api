@@ -91,7 +91,7 @@
                     </div>
                     <div class="form-group mx-3">
                         <label for="isHoa">HOA?</label>
-                        <input type="text" name="isHoa" id="isHoa" class="form-control">
+                        <input type="text" name="isHoa" id="isHoa" class="form-control" placeholder="Yes or No">
                     </div>
                     <div class="form-group">
                         <label for="price">Price</label>
@@ -112,7 +112,39 @@
                 </form>
             </div>
         </div>
-        <div class="row" id="houses"></div>
+        <div class="row" id="jobs"></div>
+        <div class="row" id="jobs-form">
+            <div class="col-12 mt-2">
+                <h1>Jobs:</h1>
+            </div>
+            <div class="col">
+                <form class="d-flex" onsubmit="app.jobsController.createJob()">
+                    <div class="form-group">
+                        <label for="jobType">Job Type</label>
+                        <input type="text" name="jobType" id="jobType" class="form-control" placeholder="Job Type..."
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Hourly Rate: </label>
+                        <input type="number" name="price" id="price" class="form-control" placeholder="Hourly Rate..." required
+                            min="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="imageUrl">Image Url</label>
+                        <input type="text" name="imageUrl" id="imageUrl" class="form-control" placeholder="Url...">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" name="description" id="description" class="form-control" placeholder="Description..."
+                            maxlength="240">
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <button type="submit" class="btn btn-outline-success">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row" id="jobs"></div>
     </main>
     <footer class="bg-dark text-light">
         <div class="text-center">

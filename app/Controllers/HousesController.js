@@ -4,7 +4,7 @@ import { housesService } from "../Services/HousesService.js"
 //make a draw so that we can import the template
 function _draw(){
    let template = ''
-   //houses nees to be declared in the proxystate
+   //houses needs to be declared in the proxystate
    ProxyState.houses.forEach(house => {
        template += house.Template
    })

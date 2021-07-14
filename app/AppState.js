@@ -1,5 +1,6 @@
 import Car from "./Models/Car.js"
 import House from "./Models/House.js"
+import Job from "./Models/Jobs.js"
 import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 
@@ -41,6 +42,21 @@ class AppState extends EventEmitter {
       price: 600000000, 
       imageUrl: 'https://images.unsplash.com/photo-1416331108676-a22ccb276e35?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFuc2lvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
       description: 'So extra.'
+    })
+  ]
+
+  jobs=[
+    new Job({
+      jobType: 'Witcher',
+      price: 50.00,
+      imageUrl: 'https://images.unsplash.com/photo-1620747918456-6db88fea1e84?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c3dvcmRzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+      description: 'Witcher needed to take care of some monsters at a local farm.'
+    }),
+    new Job({
+      jobType: 'Code Monkey',
+      price: 20.00,
+      imageUrl: 'https://images.unsplash.com/photo-1585302397435-c7fc5c53352a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bW9ua2V5JTIwd2l0aCUyMGdsYXNzZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+      description: 'Code monkey do code thing. Want type at desk. Want type code. Type good.'
     })
   ]
 

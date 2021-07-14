@@ -6,6 +6,7 @@ class App {
   carsController = new CarsController()
   //must register new controllers 
   housesController = new HousesController()
+  jobsController = new this.jobsController()
 
 }
 
