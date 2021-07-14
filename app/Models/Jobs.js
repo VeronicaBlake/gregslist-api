@@ -14,7 +14,7 @@ export default class Job{
           <img src="${this.imageUrl}" class="w-100" alt="job image">
           <div class="p-3">
               <div class="text-center">
-                  <p><b>Bedrooms: ${this.jobType}</b></p>
+                  <p><b>${this.jobType}</b></p>
               </div>
               <p>${this.description}</p>
               <p><em>$${this.price}</em></p>

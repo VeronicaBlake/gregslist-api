@@ -1,9 +1,11 @@
-import { ProxyState } from "../AppState"
-
+import { ProxyState } from "../AppState.js"
+import { jobsService } from "../Services/JobsService.js"
 
 function _draw(){
     let template = ''
-    ProxyState.jobs.forEach( job => {template += job.Template} )
+    ProxyState.jobs.forEach( job => {
+        template += job.Template
+    })
     document.getElementById('jobs').innerHTML = template
 }
 
@@ -15,11 +17,11 @@ export default class JobsController{
     
     createJob(){
         event.preventDefault()
-        let form = event.target()
+        let form = event.target
         let rawJob = {
-            jobType: form.job.jobType,
-            price: form.job.price, 
-            imageUrl: form.job.imageUrl
+            jobType: form.jobType.value,
+            price: form.price.value, 
+            imageUrl: form.imageUrl.value
         }
         jobsService.createJob(rawJob)
         form.reset()

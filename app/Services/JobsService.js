@@ -1,9 +1,9 @@
 import { ProxyState } from "../AppState.js"
-import Jobs from "../Models/Jobs.js"
+import Job from "../Models/Jobs.js"
 
 class JobsService{
-    createJobs(rawJob){
-        ProxyState.houses = [...ProxyState.jobs, new Job(rawJob)]
+    createJob(rawJob){
+        ProxyState.jobs = [...ProxyState.jobs, new Job(rawJob)]
     }
 }
 
