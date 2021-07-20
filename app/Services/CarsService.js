@@ -1,12 +1,50 @@
 import { ProxyState } from "../AppState.js"
 import Car from "../Models/Car.js"
-
+import { api } from './AxiosService.js'
 
 class CarsService {
-  createCar(rawCar) {
-    debugger
-    ProxyState.cars = [...ProxyState.cars, new Car(rawCar)]
+  constructor(){
+    
   }
+  async createCar(rawCar) {
+    const res = await api.post('cars', rawCar)
+    console.log('your neeewww car:', res.data)
+    ProxyState.cars = [...ProxyState.cars, new Car(res.data)]
+  }
+
+  async getAllCars(){
+    try{
+      
+    } catch(error){
+      console.error(error)
+    }
+  }
+
+  async deleteCar(carId){
+    try{
+      //deletes it from the database
+      const res = await api.delete('cars/' + carId)
+      console.log(res.data)
+      //updates local state
+      ProxyState.cars = ProxyState.cars.filter( c => c.id != carId)
+    }catch{
+      console.error(error)
+    }
+  }
+
+  async bidCar(carId){
+    try{
+      let foundCar = ProxyState.cars.find(c = c.id == carId)
+      foundCar.price += 100
+      const res = await api.put('cars/'+ carId, foundCar)
+      console.log('updated car', res.data)
+      ProxyState.cars = ProxyState.cars
+    }catch (error) {
+      console.error(error)
+    }
+  }
+
+
 }
 
 
