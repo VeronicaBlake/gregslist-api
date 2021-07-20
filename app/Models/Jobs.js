@@ -1,9 +1,9 @@
 export default class Job{
     //image deconstruction to bring in the elements from the rawHouse
-    constructor({jobType, price, imageUrl, description}){
+    constructor({jobType, price, imgurl, description}){
         this.jobType = jobType, 
         this.price = price, 
-        this.imageUrl = imageUrl || '//placehold.it/200x200',
+        this.imgurl = imgurl || '//placehold.it/200x200',
         this.description = description || 'no description given'
 
     }
@@ -11,7 +11,7 @@ export default class Job{
         return `
     <div class="col-md-3 col-sm-2 my-3">
       <div class="car bg-light shadow">
-          <img src="${this.imageUrl}" class="w-100" alt="job image">
+          <img src="${this.imgUrl}" class="w-100" alt="job image">
           <div class="p-3">
               <div class="text-center">
                   <p><b>${this.jobType}</b></p>

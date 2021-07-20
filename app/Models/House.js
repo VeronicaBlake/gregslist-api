@@ -20,8 +20,11 @@ export default class House{
               <div class="text-center">
                   <p><b>levels: ${this.levels} - Bedrooms: ${this.bedrooms} - Bathrooms: ${this.bathrooms}</b></p>
               </div>
+              <p>${this.year}</p>
               <p>${this.description}</p>
               <p><em>$${this.price}</em></p>
+              <button class="btn btn-info btn-block" onclick="app.housesController.bidHouse('${this.id}')"> bid </button>
+              <button class="btn btn-warning btn-block" onclick="app.housesController.deleteHouse('${this.id}')"> delete </button>
           </div>
       </div>
     </div>

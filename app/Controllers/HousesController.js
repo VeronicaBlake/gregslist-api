@@ -30,9 +30,10 @@ export default class HousesController{
             let rawHouse ={
                 bedrooms: form.bedrooms.value,
                 bathrooms: form.bathrooms.value,
-                isHoa: form.isHoa.value, 
+                levels: form.levels.value, 
+                year: form.year.value,
                 price: form.price.value, 
-                imageUrl: form.imageUrl.value,
+                imgUrl: form.imgUrl.value,
                 description: form.description.value
             }
             await housesService.createHouse(rawHouse)

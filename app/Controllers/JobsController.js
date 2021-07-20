@@ -21,7 +21,7 @@ export default class JobsController{
         let rawJob = {
             jobType: form.jobType.value,
             price: form.price.value, 
-            imageUrl: form.imageUrl.value
+            imgurl: form.imgurl.value
         }
         jobsService.createJob(rawJob)
         form.reset()
