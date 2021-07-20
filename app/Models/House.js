@@ -1,22 +1,24 @@
 export default class House{
     //image deconstruction to bring in the elements from the rawHouse
-    constructor({bedrooms, bathrooms, isHoa, price, imageUrl, description}){
+    constructor({id, year, bedrooms, bathrooms, price, description, imgUrl, levels, }){
+        this.id = id
+        this.year = year
         this.bedrooms = bedrooms, 
         this.bathrooms = bathrooms, 
-        this.isHoa = isHoa || 'unknown',
         this.price = price, 
-        this.imageUrl = imageUrl || '//placehold.it/200x200',
         this.description = description || 'no description given'
+        this.imgUrl = imgUrl || '//placehold.it/200x200',
+        this.levels = levels
 
     }
     get Template(){
         return `
     <div class="col-md-3 col-sm-2 my-3">
       <div class="car bg-light shadow">
-          <img src="${this.imageUrl}" class="w-100" alt="${this.bedrooms} ${this.bathrooms} car image">
+          <img src="${this.imgUrl}" class="w-100" alt="${this.bedrooms} ${this.bathrooms} car image">
           <div class="p-3">
               <div class="text-center">
-                  <p><b>Hoa: ${this.isHoa} - Bedrooms: ${this.bedrooms} - Bathrooms: ${this.bathrooms}</b></p>
+                  <p><b>levels: ${this.levels} - Bedrooms: ${this.bedrooms} - Bathrooms: ${this.bathrooms}</b></p>
               </div>
               <p>${this.description}</p>
               <p><em>$${this.price}</em></p>

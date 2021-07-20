@@ -4,7 +4,7 @@ import { api } from './AxiosService.js'
 
 class CarsService {
   constructor(){
-    
+    this.getAllCars()
   }
   async createCar(rawCar) {
     const res = await api.post('cars', rawCar)
@@ -14,7 +14,9 @@ class CarsService {
 
   async getAllCars(){
     try{
-      
+    const res = await api.get('cars')
+    console.log(res.data)
+    ProxyState.cars = res.data.map(c => new Car(c))
     } catch(error){
       console.error(error)
     }
@@ -34,7 +36,7 @@ class CarsService {
 
   async bidCar(carId){
     try{
-      let foundCar = ProxyState.cars.find(c = c.id == carId)
+      let foundCar = ProxyState.cars.find(c => c.id == carId)
       foundCar.price += 100
       const res = await api.put('cars/'+ carId, foundCar)
       console.log('updated car', res.data)
@@ -44,9 +46,7 @@ class CarsService {
     }
   }
 
-
 }
-
 
 // Singleton Only one instance is ever made and the same instance is always exported
 export const carsService = new CarsService()

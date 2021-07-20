@@ -21,20 +21,34 @@ export default class HousesController{
         _draw()
     }
 
-    createHouse(){
-        //prevent default here so that the page don't refresh
-        event.preventDefault()
-        //this makes it easier for us to write the rawHouse. it's saying form is what we're taking in
-        let form = event.target
-        let rawHouse ={
-            bedrooms: form.bedrooms.value,
-            bathrooms: form.bathrooms.value,
-            isHoa: form.isHoa.value, 
-            price: form.price.value, 
-            imageUrl: form.imageUrl.value,
-            description: form.description.value
+    async createHouse(){
+        try{
+            //prevent default here so that the page don't refresh
+            event.preventDefault()
+            //this makes it easier for us to write the rawHouse. it's saying form is what we're taking in
+            let form = event.target
+            let rawHouse ={
+                bedrooms: form.bedrooms.value,
+                bathrooms: form.bathrooms.value,
+                isHoa: form.isHoa.value, 
+                price: form.price.value, 
+                imageUrl: form.imageUrl.value,
+                description: form.description.value
+            }
+            await housesService.createHouse(rawHouse)
+            form.reset()
+        }catch{
+            console.error(error)
+            window.alert(error.message)
         }
-        housesService.createHouse(rawHouse)
-        form.reset()
+    }
+
+    deleteHouse(houseId){
+        console.log('your neeeww house!', houseId)
+        housesService.deleteHouse(houseId)
+    }
+    bidHouse(houseId){
+        console.log('you bid on:', houseId)
+        housesService.bidHouse(houseId)
     }
 }
